@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="helios" createEmptyFolders="true" persistUploadOnCheckin="false" exclude=".svn;.cvs;.idea;.DS_Store;.git;.hg;.pickle;" showNewOnSourceInSync="false">
+    <serverData>
+      <paths name="helios">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/Documents/zhenlinx/code/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/Documents/zhenlinx/code/FCN/tensorflow-fcn" />
+            <excludedPath path="/Documents/zhenlinx/code/2017Summer/metrics/prediction.pickle" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/checkpoint" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/events.out.tfevents.1497328104.ei-edl-gpu-helios" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/events.out.tfevents.1497362605.ei-edl-gpu-helios" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/events.out.tfevents.1497364295.ei-edl-gpu-helios" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/events.out.tfevents.1497367690.ei-edl-gpu-helios" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/events.out.tfevents.1497369270.ei-edl-gpu-helios" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/events.out.tfevents.1497370653.ei-edl-gpu-helios" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/events.out.tfevents.1497380265.ei-edl-gpu-helios" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/events.out.tfevents.1497380567.ei-edl-gpu-helios" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/model.ckpt-48000.data-00000-of-00001" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/model.ckpt-48000.index" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/model.ckpt-48000.meta" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/model.ckpt-48500.data-00000-of-00001" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/model.ckpt-48500.index" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/model.ckpt-48500.meta" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/model.ckpt-49000.data-00000-of-00001" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/model.ckpt-49000.index" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/model.ckpt-49000.meta" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/model.ckpt-49500.data-00000-of-00001" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/model.ckpt-49500.index" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/model.ckpt-49500.meta" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/model.ckpt-50000.data-00000-of-00001" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/model.ckpt-50000.index" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs/model.ckpt-50000.meta" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs_batch8" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/logs_batch4" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/.ipynb_checkpoints" />
+            <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/__pycache__" />
+            <excludedPath path="/Documents/zhenlinx/code/tensorflow" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

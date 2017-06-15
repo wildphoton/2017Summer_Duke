@@ -1,0 +1,4 @@
+images 4-D int8 41*41*3*200000
+labels 1x200000 uint8
+labelsCat 1x200000 categorical
+imagesTruth 4-D uint8
