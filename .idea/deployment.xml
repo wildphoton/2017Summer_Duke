@@ -40,6 +40,22 @@
             <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/.ipynb_checkpoints" />
             <excludedPath path="/Documents/zhenlinx/code/FCN/FCN.tensorflow/__pycache__" />
             <excludedPath path="/Documents/zhenlinx/code/tensorflow" />
+            <excludedPath path="/Documents/zhenlinx/code/2017Summer/FCN/logs_batch50" />
+            <excludedPath path="/Documents/zhenlinx/code/2017Summer/FCN/__pycache__" />
+            <excludedPath path="/Documents/zhenlinx/code/2017Summer/dataReader/__pycache__" />
+            <excludedPath path="/Documents/zhenlinx/code/2017Summer/metrics/.ipynb_checkpoints" />
+            <excludedPath path="/Documents/zhenlinx/code/2017Summer/metrics/__pycache__" />
+            <excludedPath path="/Documents/zhenlinx/code/2017Summer/test/.ipynb_checkpoints" />
+            <excludedPath path="/Documents/zhenlinx/code/2017Summer/FCN/logs_batch100" />
+            <excludedPath path="/Documents/zhenlinx/code/2017Summer/FCN/logs" />
+            <excludedPath path="/Documents/zhenlinx/code/2017Summer/FCN/logs_with_old_data_setting" />
+            <excludedPath path="/Documents/zhenlinx/code/2017Summer/dataReader/.ipynb_checkpoints" />
+            <excludedPath path="/Documents/zhenlinx/code/tensorflow-deeplab-resnet/deeplab_resnet/__pycache__" />
+            <excludedPath path="/Documents/zhenlinx/code/tensorflow-deeplab-resnet/images" />
+            <excludedPath path="/Documents/zhenlinx/code/tensorflow-deeplab-resnet/misc" />
+            <excludedPath path="/Documents/zhenlinx/code/tensorflow-deeplab-resnet/kaffe/__pycache__" />
+            <excludedPath path="/Documents/zhenlinx/code/tensorflow-deeplab-resnet/kaffe/caffe/__pycache__" />
+            <excludedPath path="/Documents/zhenlinx/code/tensorflow-deeplab-resnet/.travis.yml" />
           </excludedPaths>
         </serverdata>
       </paths>

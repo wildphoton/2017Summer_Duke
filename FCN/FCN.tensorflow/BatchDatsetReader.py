@@ -16,6 +16,7 @@ class BatchDatset:
     def __init__(self, records_list, image_options={}):
         """
         Intialize a generic file reader with batching for list of files
+        :rtype: object
         :param records_list: list of file records to read -
         sample record: {'image': f, 'annotation': annotation_file, 'filename': filename}
         :param image_options: A dictionary of options for modifying the output image
