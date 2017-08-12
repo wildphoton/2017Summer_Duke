@@ -71,6 +71,8 @@ def mean_IU(eval_segm, gt_segm):
 
     cl, n_cl   = union_classes(eval_segm, gt_segm)
     _, n_cl_gt = extract_classes(gt_segm)
+
+
     eval_mask, gt_mask = extract_both_masks(eval_segm, gt_segm, cl, n_cl)
 
     IU = list([0]) * n_cl
@@ -88,6 +90,37 @@ def mean_IU(eval_segm, gt_segm):
 
         IU[i] = n_ii / (t_i + n_ij - n_ii)
  
+    mean_IU_ = np.sum(IU) / n_cl_gt
+    return mean_IU_
+
+
+def mean_IU(eval_segm, gt_segm):
+    '''
+    (1/n_cl) * sum_i(n_ii / (t_i + sum_j(n_ji) - n_ii))
+    '''
+
+    check_size(eval_segm, gt_segm)
+
+    cl, n_cl = union_classes(eval_segm, gt_segm)
+    _, n_cl_gt = extract_classes(gt_segm)
+
+    eval_mask, gt_mask = extract_both_masks(eval_segm, gt_segm, cl, n_cl)
+
+    IU = list([0]) * n_cl
+
+    for i, c in enumerate(cl):
+        curr_eval_mask = eval_mask[i, :, :]
+        curr_gt_mask = gt_mask[i, :, :]
+
+        if (np.sum(curr_eval_mask) == 0) or (np.sum(curr_gt_mask) == 0):
+            continue
+
+        n_ii = np.sum(np.logical_and(curr_eval_mask, curr_gt_mask))
+        t_i = np.sum(curr_gt_mask)
+        n_ij = np.sum(curr_eval_mask)
+
+        IU[i] = n_ii / (t_i + n_ij - n_ii)
+
     mean_IU_ = np.sum(IU) / n_cl_gt
     return mean_IU_
 
@@ -134,7 +167,7 @@ def extract_both_masks(eval_segm, gt_segm, cl, n_cl):
     return eval_mask, gt_mask
 
 def extract_classes(segm):
-    cl = np.unique(segm)
+    cl = np.unique(segm).nonzero()[0]
     n_cl = len(cl)
 
     return cl, n_cl

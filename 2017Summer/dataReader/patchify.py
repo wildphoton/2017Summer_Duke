@@ -23,7 +23,7 @@ def gauss2D(shape=(3,3),sigma=0.5):
 A function that devide a big image into small patches that could be overlapped 
 
 Parameters: 
-    image: numpy array [m, n, 3]    
+    image: numpy array [m, n, 3] (RGB) or [m, n] (gray scale)
     patch_size: scalar
     step: scalar, the distance between centers of two adjacent patch is step
 
@@ -53,12 +53,12 @@ def unpatchify(patches, image_shape, step):
             for j in range(0,num_patch[1]):
 
                 if image_shape.__len__() == 3:
-                    image_merged[i*step:(i*step+patch_size), j*step:(j*step+patch_size), :] += patches[i*num_patch[0]+j, :, :, :]
+                    image_merged[i*step:(i*step+patch_size), j*step:(j*step+patch_size), :] += patches[i*num_patch[1]+j, :, :, :]
                     # To Do: figure out the zero problem
                     # if np.any(patches[i*num_patch[0]+j, :, :, :])
 
                 elif image_shape.__len__() == 2:
-                    image_merged[i * step:(i * step + patch_size), j * step:(j * step + patch_size)] += patches[i *num_patch[0] + j,:, :]
+                    image_merged[i * step:(i * step + patch_size), j * step:(j * step + patch_size)] += patches[i *num_patch[1] + j,:, :]
 
         return image_merged
 

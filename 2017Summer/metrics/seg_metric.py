@@ -1,5 +1,7 @@
 '''
 metrics class for image segmentation evaluation
+
+note: if background class (label 0) need to be considered, change line 51-53 from c-1 to c, remove .nonzero()[0] at line 98
 '''
 import numpy as np
 import pickle
@@ -46,36 +48,36 @@ class SegMetric:
             curr_eval_mask = eval_mask[i, :, :]
             curr_gt_mask = gt_mask[i, :, :]
 
-            self.n_ii[c] += np.sum(np.logical_and(curr_eval_mask, curr_gt_mask))
-            self.n_ij[c] += np.sum(curr_eval_mask)
-            self.t_i[c] += np.sum(curr_gt_mask)
+            self.n_ii[c-1] += np.sum(np.logical_and(curr_eval_mask, curr_gt_mask))
+            self.n_ij[c-1] += np.sum(curr_eval_mask)
+            self.t_i[c-1] += np.sum(curr_gt_mask)
 
     """Pixel Accuracy"""
     def pixel_accuracy(self):
         with np.errstate(divide='ignore', invalid='ignore'):
             pixel_accuracy = np.sum(self.n_ii) / np.sum(self.t_i)
-            print("pixel_accuracy:",pixel_accuracy)
+            # print("pixel_accuracy:",pixel_accuracy)
             return pixel_accuracy
 
     """Mean Pixel Accuracy"""
     def mean_accuracy(self):
         with np.errstate(divide='ignore', invalid='ignore'):
             mean_accuracy = sum_nan(self.n_ii / self.t_i) / self.current_num_classes_gt
-            print("Mean accuracy:",mean_accuracy)
+            # print("Mean accuracy:",mean_accuracy)
             return mean_accuracy
 
     """Mean Intersection over Union (Mean IU)"""
     def mean_IU(self):
         with np.errstate(divide='ignore', invalid='ignore'):
             mean_IU = sum_nan(self.n_ii / (self.t_i + self.n_ij - self.n_ii)) / self.current_num_classes_gt
-            print("mean_IU:", mean_IU)
+            # print("mean_IU:", mean_IU)
             return mean_IU
 
     """Frequency Weighted IU"""
     def frequency_weighted_IU(self):
         with np.errstate(divide='ignore', invalid='ignore'):
             frequency_weighted_IU = sum_nan(self.n_ii * self.t_i / (self.t_i + self.n_ij - self.n_ii)) / sum_nan(self.t_i)
-            print("frequency_weighted_IU:", frequency_weighted_IU)
+            # print("frequency_weighted_IU:", frequency_weighted_IU)
             return frequency_weighted_IU
 
 
@@ -93,7 +95,7 @@ def extract_both_masks(eval_segm, gt_segm, cl, n_cl):
 
 
 def extract_classes(segm):
-    cl = np.unique(segm)
+    cl = np.unique(segm).nonzero()[0]
     n_cl = len(cl)
 
     return cl, n_cl

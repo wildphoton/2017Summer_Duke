@@ -13,6 +13,7 @@ from six.moves import xrange
 
 sys.path.append(os.path.realpath('../metrics'))
 sys.path.append(os.path.realpath('../dataReader'))
+sys.path.append(os.path.realpath('../utils'))
 
 from mat_batch_reader import BatchReader
 from seg_metric import SegMetric
@@ -28,7 +29,7 @@ imgDir = os.path.join(dataDir, "imageFiles")
 
 # default FLAGS
 FLAGS = tf.flags.FLAGS
-tf.flags.DEFINE_integer("batch_size", "20", "batch size for training")
+tf.flags.DEFINE_integer("batch_size", "128", "batch size for training")
 tf.flags.DEFINE_integer("epochs", "1", "number of training epochs")
 tf.flags.DEFINE_integer("visualize_size", "20", "batch size for visualizing results")
 tf.flags.DEFINE_string("logs_dir", "logs", "path to logs directory")
@@ -37,7 +38,7 @@ tf.flags.DEFINE_string("mat_dir", matDir, "path to mat files")
 tf.flags.DEFINE_float("learning_rate", "1e-7", "Learning rate for Adam Optimizer")
 tf.flags.DEFINE_string("model_dir", "/home/helios/Documents/data/Model_zoo/", "Path to vgg model mat")
 tf.flags.DEFINE_bool('debug', "False", "Debug mode: True/ False")
-tf.flags.DEFINE_string('mode', "validate", "Mode train/ est/ visualize")
+tf.flags.DEFINE_string('mode', "validate", "Mode train/ test/ visualize")
 tf.flags.DEFINE_string("GPU", "0", "path to logs directory")
 
 MODEL_URL = 'http://www.vlfeat.org/matconvnet/models/beta16/imagenet-vgg-verydeep-19.mat'
@@ -195,6 +196,7 @@ def main(argv=None):
     if FLAGS.mode == 'train':
         train_dataset_reader = BatchReader(FLAGS.mat_dir, TRAINING_FILES)
         train_dataset_reader.shuffle_images()
+    # if (FLAGS.mode == 'train')| (FLAGS.mode == 'visualize')| (FLAGS.mode == 'test'):
     validation_dataset_reader = BatchReader(FLAGS.mat_dir, VALIDATION_FILES)
 
     print("Setting up Graph")
@@ -247,7 +249,7 @@ def main(argv=None):
 
     if FLAGS.mode == "train":
         print("Start training with batch size {}, learning rate{}".format(FLAGS.batch_size, FLAGS.learning_rate))
-        itr = int(0)
+        itr = int( 0)
         while train_dataset_reader.epochs_completed < FLAGS.epochs:
             train_images, train_annotations = train_dataset_reader.next_batch(FLAGS.batch_size)
             feed_dict = {image: train_images, annotation: train_annotations, keep_probability: 0.85}
@@ -303,7 +305,7 @@ def main(argv=None):
     elif FLAGS.mode == "validate":
         valid_stride = 20
         valid_batch_size = 1000
-        valid_list = ['11ska595800{}','11ska460755{}']
+        valid_list = ['11ska595800{}', '11ska460755{}', '11ska580860{}', '11ska565845{}']
 
         gfilter = gauss2D(shape=[IMAGE_SIZE, IMAGE_SIZE], sigma=(IMAGE_SIZE - 1) / 4)
 
@@ -325,8 +327,8 @@ def main(argv=None):
             pred_weighted_normalized = np.nan_to_num(pred_weighted_rec / gauss_mask_rec)
 
             print("Save validation prediction")
-            utils.save_image(pred_weighted_normalized.astype(np.float32), log_image_dir, name="{}_valid".format(valid_file[0:-2]))
-            misc.toimage(pred_weighted_normalized.astype(np.float32),high=1.0,low=0.0, cmin=0.0, cmax=1.0, mode='F').save(os.path.join(log_image_dir, '{}_valid_float.tif'.format(valid_file[0:-2])))
+            utils.save_image(pred_weighted_normalized.astype(np.float32), log_image_dir, name="{}_valid_pred".format(valid_file[0:-2]))
+            misc.toimage(pred_weighted_normalized.astype(np.float32),high=1.0,low=0.0, cmin=0.0, cmax=1.0, mode='F').save(os.path.join(log_image_dir, '{}_valid_pmap.tif'.format(valid_file[0:-2])))
 
             print("mean_IU: {}".format(mean_IU((pred_weighted_normalized > 0.5).astype(int), valid_annotation)))
 
@@ -370,9 +372,7 @@ def main(argv=None):
                 seg_metric.mean_accuracy()
                 seg_metric.mean_IU()
                 seg_metric.frequency_weighted_IU()
-            # with open(os.path.expanduser('~/Documents/zhenlinx/code/2017Summer/metrics/prediction.pickle'), 'wb') as f:
-        #     print("saving predictions")
-        #     pickle.dump([pred_valid, valid_annotations], f)
+
         print("Final Accuracy:")
         seg_metric.pixel_accuracy()
         seg_metric.mean_accuracy()
