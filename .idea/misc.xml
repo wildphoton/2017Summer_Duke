@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" project-jdk-name="Remote Python 3.5.2 (ssh://helios@152.3.214.108:22/home/helios/anaconda3/envs/TF/bin/python)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Remote Python 2.7.13 (ssh://helios@152.3.214.108:22/home/helios/anaconda3/envs/TF-py2/bin/python2.7)" project-jdk-type="Python SDK" />
   <component name="PythonCompatibilityInspectionAdvertiser">
     <option name="version" value="2" />
   </component>

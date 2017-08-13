@@ -2,16 +2,18 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/2017Summer/metrics" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/metrics" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/FCN/FCN.tensorflow" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2017Summer" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/2017Summer/MATLAB" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/2017Summer/dataReader" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/2017Summer/FCN" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/MATLAB" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dataReader" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FCN" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tensorflow-deeplab-resnet" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/preproc" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/tensorflow" />
+      <excludeFolder url="file://$MODULE_DIR$/tf_unet" />
     </content>
-    <orderEntry type="jdk" jdkName="Remote Python 3.5.2 (ssh://helios@152.3.214.108:22/home/helios/anaconda3/envs/TF/bin/python)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Remote Python 2.7.13 (ssh://helios@152.3.214.108:22/home/helios/anaconda3/envs/TF-py2/bin/python2.7)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">
