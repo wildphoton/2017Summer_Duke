@@ -31,6 +31,7 @@ import os
 import sys
 import pandas as pd
 import tensorflow as tf
+sys.path.append(os.path.realpath('../dataReader'))
 from image_reader import ImageReader
 sys.path.append(os.path.realpath('../metrics'))
 from seg_metric import SegMetric

@@ -1,10 +1,12 @@
+"""
+The script implemented the domain adaptation method in << Return of Frustratingly Easy Domain Adaptation >>
+"""
+
 import numpy as np
 import scipy.misc as misc
-import scipy.stats as stats
 import scipy.linalg as linalg
 import os
 import sys
-import matplotlib.pyplot as plt
 
 sys.path.append(os.path.realpath('../utils'))
 from patchify import patchify
@@ -12,7 +14,7 @@ from patchify import patchify
 
 def CORAL(source_data, target_data, lamda):
     """
-    CORAL domain adaptation
+    CORAL domain adaptation for source feature domain to target feature domain
     :param source_data: M_s by N_s matrix, M_s is number of samples and N_s is the dimension of features
     :param target_data: M_t by N_t matrix, M_t is number of samples and N_t is the dimension of features
     :return: the source samples that adapted to target domain: M_s by N_t matrix
@@ -27,6 +29,13 @@ def CORAL(source_data, target_data, lamda):
 
 
 def image_adapt(source_image, target_image, lamda):
+    """
+    CORAL domain adaptation from source image to target image with the parameter lamda
+    :param source_image: 
+    :param target_image: 
+    :param lamda: 
+    :return: source image adapted to target image domain
+    """
     # zero-mean
     source_mean = np.mean(source_image, (0, 1))
     target_mean = np.mean(target_image, (0, 1))
@@ -40,22 +49,21 @@ def image_adapt(source_image, target_image, lamda):
 
     return np.reshape(source_image_adapted_vec, source_image.shape).astype(np.uint8)
 
+"""
+Examples for using the functions
+"""
 
 source_city_name = "Arlington"
 target_city_name = "Norfolk"
-
 IMAGE_PATH = os.path.expanduser("~/Documents/data/building")
+
 source_image_file = '{}_{:0>2}'.format(source_city_name, 1)
 source_image = misc.imread(os.path.join(IMAGE_PATH, source_city_name, "{}_RGB.png".format(source_image_file)))
-source_truth = (
-    misc.imread(os.path.join(IMAGE_PATH, source_city_name, "{}_truth.png".format(source_image_file))) / 255).astype(
-    np.uint8)
+
 
 target_image_file = '{}_{:0>2}'.format(target_city_name, 1)
 target_image = misc.imread(os.path.join(IMAGE_PATH, target_city_name, "{}_RGB.png".format(target_image_file)))
-target_truth = (
-    misc.imread(os.path.join(IMAGE_PATH, target_city_name, "{}_truth.png".format(target_image_file))) / 255).astype(
-    np.uint8)
+
 
 LAMBDA = 1
 source_image_adapted = image_adapt(source_image, target_image, LAMBDA)

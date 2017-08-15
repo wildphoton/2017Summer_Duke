@@ -103,3 +103,10 @@ ENV/
 .idea/
 /.idea/
 
+/utils/matFileTest.py
+/utils/largeImageValidation.py
+/.gitignore
+/utils/cross_city_test_result.py
+/notebook/patchingTest.ipynb
+/notebook/metric test.ipynb
+/notebook/loadMatTest.ipynb

@@ -1,5 +1,5 @@
 """
-This reader is slightly modified from the image reader pf deeplab_
+This reader is slightly modified from the image reader of tensorflow-deeplab-resnet
 """
 import os
 
