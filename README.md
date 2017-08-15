@@ -1,5 +1,5 @@
 # Duke_2017Summer
-This project includes the code for semantic segmentation of satelite images implemented by Zhenlin Xu as an intern at Duke
+This project includes the code for semantic segmentation of satelite images implemented during the internship at Duke.
 
 # What are in this project
 Three CNN based segmentation models and some utilities like data reader, segmentation metric, pre/post-processing, etc.
